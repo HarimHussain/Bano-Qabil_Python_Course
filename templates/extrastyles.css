@@ -1,0 +1,75 @@
+/* 3styles.css */
+
+.body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light gray background color */
+    color: #333; /* Dark text color */
+}
+
+.container {
+    display: flex;
+}
+
+.navbar {
+    background-color: #2c3e50; /* Dark blue background color */
+    display: flex;
+    flex-direction: column; /* Arrange links vertically */
+    justify-content: flex-start; /* Align links at the top */
+    align-items: flex-start; /* Align links to the left */
+    height: 100vh; /* Full height */
+    width: auto; /* Adjust width as needed */
+    position: relative; /* Ensure proper positioning of logout */
+}
+
+.navbar a {
+    color: #fff; /* White text color */
+    padding: 30px 20px; /* Padding for links */
+    text-decoration: none;
+    transition: background-color 0.3s; /* Smooth hover effect */
+    line-height: 30px; /* Adjusted line-height to center vertically */
+}
+
+.member-name {
+    text-align: center;
+    line-height: 30px; /* Adjusted line-height to center vertically */
+}
+
+.logout {
+    color: #fff;
+    background-color: #2c3e50;
+    padding: 30px 20px; /* Adjusted padding to match other options */
+    text-decoration: none;
+    border-radius: 5px;
+    line-height: 30px; /* Adjusted line-height to center vertically */
+    width: auto; /* Adjusted width to match widest link */
+    margin: 0 20px; /* Adjusted margin to match other options */
+}
+
+.logout:hover {
+    background-color: #34495e;
+}
+
+.content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto; /* Center content */
+    height: calc(100vh - 180px); /* Adjusted height to fill remaining viewport height below the navbar */
+    overflow: auto; /* Enable scrolling if content overflows */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd; /* Light gray border */
+    padding: 10px; /* Padding for table cells */
+    text-align: center;
+}
+
+th {
+    background

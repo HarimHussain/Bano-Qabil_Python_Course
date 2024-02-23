@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Bill</title>
+    <link rel="stylesheet" type="text/css" href="maintainancestyles.css">
+    <style>
+        /* Additional CSS for table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .member-list {
+            display: none; /* Hide member list by default */
+        }
+
+        .member-list.active {
+            display: block; /* Show active member list */
+        }
+
+        .member-list div {
+            white-space: nowrap; /* Prevent member names from wrapping */
+            overflow: hidden; /* Hide overflowing member names */
+            text-overflow: ellipsis; /* Show ellipsis for overflowing member names */
+            margin-bottom: 4px; /* Add spacing between member names */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Search bar -->
+<div class="search-container">
+    <input type="text" id="search-input" placeholder="Search..." onkeyup="filterTable()">
+    <button type="submit">Search</button>
+</div>
+
+<div class="container">
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="announcements.html">Announcements</a>
+        <a class="active" href="maintenance_bill.html">Maintenance Bill</a>
+        <a href="home_service.html">Home Service</a>
+        <a href="neighborhood.html">Neighborhood</a>
+        <a href="logout.html" class="logout">Logout</a> <!-- Add logout link here -->
+    </div>
+    <div class="content">
+        <h1>Maintenance Bill</h1>
+        <table id="maintenance-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Member</th> <!-- Changed to singular "Member" heading -->
+                    <th>Total Amount</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024-02-02</td>
+                    <td>
+                        <div class="member-list active"> <!-- Added "active" class to display first member -->
+                            <div>Moiz</div>
+                        </div>
+                        <div class="member-list">
+                            <div>Aqsa</div>
+                        </div>
+                        <div class="member-list">
+                            <div>Harim</div>
+                        </div>
+                        <div class="member-list">
+                            <div>Areeb</div>
+                        </div>
+                    </td>
+                    <td>$150</td>
+                    <td>Unpaid</td>
+                    <td><button>View</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    var currentIndex = 0; // Index of the currently active member
+
+    function showMember(index) {
+        var memberLists = document.querySelectorAll('.member-list');
+        memberLists.forEach(function(list, idx) {
+            if (idx === index) {
+                list.classList.add('active');
+            } else {
+                list.classList.remove('active');
+            }
+        });
+    }
+
+    function filterTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search-input");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("maintenance-table");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1]; // Index 1 for the "Member" column
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                    showMember(currentIndex); // Show active member when filtering
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

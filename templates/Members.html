@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members</title>
+    <link rel="stylesheet" type="text/css" href="Membersstyles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Additional CSS for the "New Member" button */
+        .new-member-button {
+            background-color: #4CAF50; /* Green background */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .new-member-button:hover {
+            background-color: #45a049; /* Darker green background on hover */
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="announcements.html">Announcements</a>
+    <a href="maintenance.html">Maintenance</a>
+    <a href="home_service.html">Home Service</a>
+    <a class="active" href="Members.html">Members</a>
+    <a href="#">Log Out</a> <!-- Add Log Out option -->
+</div>
+
+<div class="search-container">
+    <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for member.." name="search">
+    <button onclick="addNewMember()" class="new-member-button">New Member</button> <!-- Button for adding new member -->
+</div>
+
+<div class="container">
+    <h1>Members</h1>
+    <table id="memberTable">
+        <thead>
+            <tr>
+                <th>Serial Number</th>
+                <th>Email ID</th>
+                <th>Username</th>
+                <th>Flat/House Number</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Add table rows for members -->
+            <tr>
+                <td>1</td>
+                <td>member1@example.com</td>
+                <td>JohnDoe</td>
+                <td>Flat 101</td>
+                <td>Edit / Delete</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>member2@example.com</td>
+                <td>JaneSmith</td>
+                <td>House 42</td>
+                <td>Edit / Delete</td>
+            </tr>
+            <!-- Add more rows as needed -->
+            <!-- Adding more members -->
+            <tr>
+                <td>3</td>
+                <td>member3@example.com</td>
+                <td>RobertJohnson</td>
+                <td>Flat 303</td>
+                <td>Edit / Delete</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>member4@example.com</td>
+                <td>SarahBrown</td>
+                <td>House 15</td>
+                <td>Edit / Delete</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>member5@example.com</td>
+                <td>MichaelDavis</td>
+                <td>Flat 204</td>
+                <td>Edit / Delete</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>member6@example.com</td>
+                <td>EmilyWilson</td>
+                <td>House 28</td>
+                <td>Edit / Delete</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>member7@example.com</td>
+                <td>DavidMartinez</td>
+                <td>Flat 507</td>
+                <td>Edit / Delete</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>member8@example.com</td>
+                <td>OliviaGarcia</td>
+                <td>House 7</td>
+                <td>Edit / Delete</td>
+            </tr>
+            <tr style="display: none;"> <!-- Hidden rows -->
+                <td>9</td>
+                <td>member9@example.com</td>
+                <td>WilliamClark</td>
+                <td>Flat 606</td>
+                <td>Edit / Delete</td>
+            </tr>
+            <tr style="display: none;"> <!-- Hidden rows -->
+                <td>10</td>
+                <td>member10@example.com</td>
+                <td>EmmaLewis</td>
+                <td>House 32</td>
+                <td>Edit / Delete</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function searchTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("memberTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[2]; // Search by the third column (Username)
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    function addNewMember() {
+        // Your code to handle adding a new member goes here
+        // For demonstration purposes, you can redirect to another page for adding a new member
+        window.location.href = "add_member.html";
+    }
+</script>
+
+</body>
+</html>

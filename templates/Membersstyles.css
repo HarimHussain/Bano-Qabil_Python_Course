@@ -1,0 +1,82 @@
+/* Additional CSS for vertical navbar */
+.navbar {
+    background-color: #2c3e50; /* Dark background color */
+    overflow: hidden;
+    padding: 20px; /* Adjusted padding */
+    text-align: center; /* Center align navbar content */
+    height: 100vh; /* Set navbar height to full viewport height */
+    width: 165px; /* Set navbar width */
+    position: fixed; /* Fix navbar position */
+    top: 0; /* Align navbar to the top */
+    left: 0; /* Align navbar to the left */
+    display: flex; /* Use flexbox for vertical alignment */
+    flex-direction: column; /* Align navbar items vertically */
+    justify-content: space-around; /* Arrange items vertically with space around */
+}
+
+.navbar a {
+    float: none; /* Remove float */
+    display: block; /* Display links as block elements */
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 20px; /* Adjusted padding */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #031949; /* Light background color on hover */
+    color: rgb(235, 237, 241);
+}
+
+/* Additional CSS for table and search bar */
+.container {
+    margin-left: 190px; /* Adjusted margin to accommodate the vertical navbar */
+    margin-top: 20px; /* Adjusted margin from the top */
+    text-align: center; /* Center align the content */
+    height: calc(100vh - 20px); /* Set height of container */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+table {
+    width: 90%; /* Adjusted table width */
+    border-collapse: collapse;
+    margin-top: 20px; /* Add margin to separate table from search bar */
+    margin-left: 20px; /* Adjusted margin to move the table slightly to the right */
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Additional CSS for search bar */
+.search-container {
+    position: fixed; /* Fix search bar position */
+    top: 20px; /* Align search bar to the top */
+    right: 20px; /* Align search bar to the right */
+}
+
+.search-container input[type=text] {
+    padding: 10px; /* Adjusted padding */
+    width: 200px; /* Adjusted width */
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png'); /* Add search icon */
+    background-position: 10px 10px; /* Position search icon */
+    background-repeat: no-repeat; /* Prevent search icon from repeating */
+    padding-left: 40px; /* Adjust padding to accommodate search icon */
+    outline: none; /* Remove outline */
+}
+
+.search-container input[type=text]:focus {
+    border: 2px solid #4CAF50; /* Highlight border on focus */
+}
